@@ -7,11 +7,13 @@ import HomePage from "./pages/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import ProductsPage from "./pages/products";
 import AboutUsPage from "./pages/about";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <main className="h-full">
       <Router>
+        
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/login" element={<Login/>} />
@@ -23,6 +25,7 @@ function App() {
           <Route path="*" element={<div className="h-screen"><h1>Page Not Found</h1></div>} />
         </Routes>
       </Router>
+      <Toaster reverseOrder={true} />
     </main>
   );
 }
