@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import Loginform from "../../components/forms/login.form"
 
 
@@ -15,7 +16,7 @@ const Login = () => {
 
           <div className="py-4">
             <p className="text-center">
-              Don&apos;t have an account? <span className="text-violet-700">Sign Up</span>
+              Don&apos;t have an account? <Link to={'/register'}> <span className="text-violet-700">Sign Up</span></Link>
             </p>
           </div>
         </div>

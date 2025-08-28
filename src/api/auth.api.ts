@@ -1,12 +1,11 @@
-import axios from "axios";
 import type { ILoginData } from "../types/auth.types";
+import api from './'
 
-const API_URL = import.meta.env.VITE_API_BASE_URL
 
 export const login = async (data: ILoginData) => {
   try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
+    const response = await api.post(
+      `/auth/login`,
       data
     );
     console.log(response);
@@ -20,8 +19,8 @@ export const login = async (data: ILoginData) => {
 };
 export const register = async (data: ILoginData) => {
   try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/auth/register`,
+    const response = await api.post(
+      `/auth/register`,
       data
     );
     console.log(response);

@@ -1,20 +1,21 @@
-import Footer from "../components/footer/footer";
-import Header from "../components/header";
-import FeaturedProducts from "../components/Landing/featured-product";
+
+// import BestSellingProducts from "../components/Landing/best-selling";
+import CategoryList from "../components/Landing/category";
+import FeatutedProducts from "../components/Landing/featured-product";
 import Hero from "../components/Landing/hero";
 
 const HomePage = () => {
   return (
     <div className="min-h-screen border">
       {/* nav bar */}
-      <Header />
       {/* content section */}
       <Hero />
-      <div className="px-36">
-        <FeaturedProducts />
+      <div className="px-36 py-10 flex flex-col gap-10">
+        <CategoryList />
+        <FeatutedProducts />
+        {/* <BestSellingProducts /> */}
       </div>
       {/* footer */}
-      <Footer/>
     </div>
   );
 };

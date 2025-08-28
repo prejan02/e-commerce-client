@@ -2,11 +2,11 @@
 import ComponentTitle from '../common/title-component'
 import ProductCard from '../product/card'
 
-const FeatutedProducts = () => {
+const BestSellingProducts = () => {
   return (
     <div className=' min-h-[500px]'>
         <ComponentTitle 
-        title='Featured Products' 
+        title='Best Selling Products' 
         sub_title='Limited Stock – Shop Featured Favorites Today'
         link='#'
         />
@@ -26,4 +26,4 @@ const FeatutedProducts = () => {
   )
 }
 
-export default FeatutedProducts
+export default BestSellingProducts

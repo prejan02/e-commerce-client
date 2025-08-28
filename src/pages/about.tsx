@@ -1,9 +1,8 @@
-import Header from "../components/header"
 
 const AboutUsPage = () => {
   return (
-    <div>
-        <Header/>
+        <div className="relative h-[85vh] w-full">
+
     </div>
   )
 }

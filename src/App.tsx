@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import ProductsPage from "./pages/products";
 import AboutUsPage from "./pages/about";
 import { Toaster } from "react-hot-toast";
+import ClientLayout from "./layout/client.layout";
 
 function App() {
   return (
@@ -15,13 +16,17 @@ function App() {
       <Router>
         
         <Routes>
-          <Route path="/" element={<HomePage/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+
+          <Route path="/" element={<ClientLayout/>} >
+          
+          <Route path="/" element={<HomePage/>} />
           <Route path="/contact-us" element={<ContactPage/>} />
           <Route path="/about-us" element={<AboutUsPage/>} />
-          <Route path="/register" element={<Register/>} />
           <Route path="/products" element={<ProductsPage/>} />
           <Route path="/product/:id" element={<DynamicPage/>} />
+          </Route>
           <Route path="*" element={<div className="h-screen"><h1>Page Not Found</h1></div>} />
         </Routes>
       </Router>

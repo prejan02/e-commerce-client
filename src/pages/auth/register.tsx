@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import RegisterForm from "../../components/forms/register.form"
  
 const Register = () => {
@@ -8,7 +9,7 @@ const Register = () => {
             <RegisterForm/>
             <div className="py-4">
             <p className="text-center">
-              Already have an account? <span className="text-violet-700">Sign In</span>
+              Already have an account? <Link to={'/login'}> <span className="text-violet-700">Sign In</span> </Link>
             </p>
           </div>
         </div>
