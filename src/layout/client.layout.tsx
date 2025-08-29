@@ -9,7 +9,10 @@ const ClientLayout = () => {
         {/* header section */}
         <Header/>
         {/* page content section */}
+        <div className="min-h-full">
         <Outlet/>
+
+        </div>
         {/* footer section */}
         <Footer/>
     </main>

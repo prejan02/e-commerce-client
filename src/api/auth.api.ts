@@ -28,6 +28,19 @@ export const register = async (data: ILoginData) => {
     return response.data;
   } catch (error: any) {
     console.log(error);
+    
+    throw error.response.data;
+  }
+};
+
+export const logout = async () => {
+  try {
+    const response = await api.post(
+      `/auth/logout`    );
+
+    return response.data;
+  } catch (error: any) {
+    console.log(error);
 
     throw error.response.data;
   }

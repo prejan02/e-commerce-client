@@ -1,5 +1,5 @@
 
-import { IconSection } from "./icons";
+import IconSection from "./icons";
 import { NavLinks } from "./nav-links";
 
 

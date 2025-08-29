@@ -9,6 +9,7 @@ import ProductsPage from "./pages/products";
 import AboutUsPage from "./pages/about";
 import { Toaster } from "react-hot-toast";
 import ClientLayout from "./layout/client.layout";
+import WishlistPage from "./pages/wishlist";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/contact-us" element={<ContactPage/>} />
           <Route path="/about-us" element={<AboutUsPage/>} />
+          <Route path="/wishlist" element={<WishlistPage/>} />
           <Route path="/products" element={<ProductsPage/>} />
           <Route path="/product/:id" element={<DynamicPage/>} />
           </Route>

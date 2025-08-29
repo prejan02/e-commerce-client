@@ -4,13 +4,13 @@ import type { ILoginData } from "../../types/auth.types";
 import { loginSchema } from "../../schema/auth.schema";
 import Input from "../common/inputs/input";
 import { login } from "../../api/auth.api";
-import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import toast from 'react-hot-toast'
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
+import { useAuth } from "../../context/auth.context";
 
 const Loginform = () => {
-  const [loading, setLoading] = useState(false);
+    const {setUser,setToken} = useAuth()
   const navigate = useNavigate()
   const methods = useForm({
     defaultValues: {
@@ -28,7 +28,9 @@ const Loginform = () => {
       toast.success(response?.message ?? "login success")
       localStorage.setItem('token',response.data.access_token)
       localStorage.setItem('user',JSON.stringify(response.data.data))
-      navigate('/')
+      setUser(response.data.data)
+      setToken(response.data.access_token)
+      navigate('/',{replace:true})
       
     },
     onError:(error)=>{
@@ -41,7 +43,6 @@ const Loginform = () => {
   })
 
   const onSubmit = (data: ILoginData) => {
-    setLoading(true);
     mutate(data)
   };
   return (
@@ -74,8 +75,7 @@ const Loginform = () => {
                 className={
                   " cursor-pointer w-full bg-violet-600 py-3 rounded-md text-white font-bold transition-all duration-75 hover:bg-violet-800 disabled:bg-violet-500 disabled:cursor-not-allowed"
                 }
-              >
-                {loading? 'Signing In......': 'Sign In'}
+              >Sign In
               </button>
             </div>
           </div>
