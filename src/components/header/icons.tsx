@@ -11,16 +11,13 @@ import toast from "react-hot-toast";
 
 const IconSection = () => {
   // const user = JSON.parse(localStorage.getItem('user') as string) ?? null
-  const { user, setToken, setUser } = useAuth();
+  const { user,  setUser } = useAuth();
   const navigate = useNavigate();
 
   const { mutate, isPending } = useMutation({
     mutationFn: logout,
     onSuccess: (data) => {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
       setUser(null);
-      setToken(null);
       navigate("/login", { replace: true });
       toast.success(data.message || "Logged out");
     },

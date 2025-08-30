@@ -29,8 +29,8 @@ const Loginform = () => {
     onSuccess:(response)=>{
       console.log(response);
       toast.success(response?.message ?? "login success")
-      localStorage.setItem('token',response.data.access_token)
-      localStorage.setItem('user',JSON.stringify(response.data.data))
+      // localStorage.setItem('token',response.data.access_token)
+      // localStorage.setItem('user',JSON.stringify(response.data.data))
       setUser(response.data.data)
       navigate(navigate_to,{replace:true})
       
