@@ -7,13 +7,13 @@ import {
   type SetStateAction,
 } from "react";
 import type { IUser } from "../types/auth.types";
+import { get_profile } from "../api/auth.api";
 
 interface IContext {
   user: null | IUser;
   setUser: Dispatch<SetStateAction<null>>;
   isLoading: boolean;
-  token: string | null;
-  setToken: Dispatch<SetStateAction<string | null>>;
+ 
   logout: () => void;
 }
 
@@ -21,8 +21,7 @@ const initial_value = {
   user: null,
   setUser: () => {},
   isLoading: true,
-  token: null,
-  setToken: () => {},
+  
   logout: () => {},
 };
 
@@ -33,34 +32,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState<string | null>(null);
+  // const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    try {
-      const data = localStorage.getItem("user");
-      const token = localStorage.getItem("token");
-      if (data && token) {
-        setUser(JSON.parse(data));
-        setToken(token);
+    async function fetchUser() {
+        try {
+          const data = await get_profile()
+          console.log(data);
+          
+          setUser(data.data)
+        
+      }catch(error){
+        console.log(error);
+        setUser(null)
+        
+      }finally{
+        setIsLoading(false)
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
     }
+      fetchUser()
   }, []);
 
   const logout = (cb = () => {}) => {
     localStorage.removeItem("user");
-    localStorage.removeItem("token");
     setUser(null);
-    setToken(null);
     cb();
   };
   return (
     <AuthContext.Provider
-      value={{ user, setUser, token, setToken, isLoading, logout }}
+      value={{ user, setUser, isLoading, logout }}
     >
       {children}
     </AuthContext.Provider>
