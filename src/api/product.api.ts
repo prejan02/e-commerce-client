@@ -13,3 +13,15 @@ export const getFeaturedProducts = async()=>{
         
     }
 }
+//get by id
+export const get_by_id = async(id:string)=>{
+    try {
+        const response = await api.get(`/product/${id}`)
+        return response.data
+
+        
+    } catch (error:any) {
+        throw error.response.data
+        
+    }
+}

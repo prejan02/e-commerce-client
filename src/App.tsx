@@ -2,7 +2,6 @@ import "./App.css";
 import Login from "./pages/auth/login";
 import Register from './pages/auth/register'
 import ContactPage from "./pages/contact";
-import DynamicPage from "./pages/detail.page";
 import HomePage from "./pages/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import ProductsPage from "./pages/products";
@@ -10,6 +9,8 @@ import AboutUsPage from "./pages/about";
 import { Toaster } from "react-hot-toast";
 import ClientLayout from "./layout/client.layout";
 import WishlistPage from "./pages/wishlist";
+import ProductDetailPage from "./pages/detail.page";
+import ProtectedCartPage from "./pages/cart";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage/>} />
           <Route path="/wishlist" element={<WishlistPage/>} />
           <Route path="/products" element={<ProductsPage/>} />
-          <Route path="/product/:id" element={<DynamicPage/>} />
+          <Route path='/cart' element={<ProtectedCartPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage/>} />
           </Route>
           <Route path="*" element={<div className="h-screen"><h1>Page Not Found</h1></div>} />
         </Routes>

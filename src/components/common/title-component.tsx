@@ -18,7 +18,7 @@ const ComponentTitle:React.FC<IProps> = ({title,sub_title,link}) => {
             </Link>}
         </div>
         <div>
-            <p className="text-[16px] text-gray-600 ">{sub_title}</p>
+            <p className="text-[16px] text-gray-600 max-w-[600px]">{sub_title}</p>
         </div>
     </div>
   )
