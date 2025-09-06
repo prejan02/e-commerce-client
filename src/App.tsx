@@ -9,8 +9,13 @@ import AboutUsPage from "./pages/about";
 import { Toaster } from "react-hot-toast";
 import ClientLayout from "./layout/client.layout";
 import WishlistPage from "./pages/wishlist";
-import ProductDetailPage from "./pages/detail.page";
 import ProtectedCartPage from "./pages/cart";
+import ProductDetailPage from "./pages/detail.page";
+import Dashboard from "./pages/admin/dashboard";
+import UserPage from "./pages/admin/user";
+import OrderPage from "./pages/admin/order";
+import AdminLayout from "./layout/admin.layout";
+import PageNotFound from "./pages/page-not-found";
 
 function App() {
   return (
@@ -32,6 +37,13 @@ function App() {
           <Route path="/product/:id" element={<ProductDetailPage/>} />
           </Route>
           <Route path="*" element={<div className="h-screen"><h1>Page Not Found</h1></div>} />
+          {/* admin routes */}
+          <Route path='/admin' element={<AdminLayout />}>
+            <Route path='/admin' element={<Dashboard />} />
+            <Route path='/admin/users' element={<UserPage />} />
+            <Route path='/admin/orders' element={<OrderPage />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Route>
         </Routes>
       </Router>
       <Toaster reverseOrder={true} />
