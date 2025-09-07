@@ -16,6 +16,8 @@ import UserPage from "./pages/admin/user";
 import OrderPage from "./pages/admin/order";
 import AdminLayout from "./layout/admin.layout";
 import PageNotFound from "./pages/page-not-found";
+import CategoryPage from "./pages/admin/category";
+import CreateCategory from "./pages/admin/category/add.category";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
             <Route path='/admin' element={<Dashboard />} />
             <Route path='/admin/users' element={<UserPage />} />
             <Route path='/admin/orders' element={<OrderPage />} />
+            <Route path='/admin/category' element={<CategoryPage />} />
+            <Route path='/admin/category/add' element={<CreateCategory />} />
             <Route path='*' element={<PageNotFound />} />
           </Route>
         </Routes>
